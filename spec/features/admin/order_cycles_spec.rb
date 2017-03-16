@@ -148,8 +148,8 @@ feature %q{
 
     page.should have_selector 'a', text: 'Plums & Avos'
 
-    page.should have_selector "input[value='2040-11-06 06:00:00 +1100']"
-    page.should have_selector "input[value='2040-11-13 17:00:00 +1100']"
+    page.should have_selector "input[value='#{Time.zone.local(2040, 11, 06, 06, 00, 00)}']"
+    page.should have_selector "input[value='#{Time.zone.local(2040, 11, 13, 17, 00, 00)}']"
     page.should have_content 'My coordinator'
 
     page.should have_selector 'td.suppliers', text: 'My supplier'
@@ -380,8 +380,8 @@ feature %q{
 
     page.should have_selector 'a', text: 'Plums & Avos'
 
-    page.should have_selector "input[value='2040-11-06 06:00:00 +1100']"
-    page.should have_selector "input[value='2040-11-13 17:00:00 +1100']"
+    page.should have_selector  "input[value='#{Time.zone.local(2040, 11, 06, 06, 00, 00)}']"
+    page.should have_selector "input[value='#{Time.zone.local(2040, 11, 13, 17, 00, 00)}']"
     page.should have_content coordinator.name
 
     page.should have_selector 'td.suppliers', text: 'My supplier'
@@ -900,8 +900,8 @@ feature %q{
       # Then my order cycle should have been created
       page.should have_content 'Your order cycle has been created.'
       page.should have_selector 'a', text: 'Plums & Avos'
-      page.should have_selector "input[value='2040-10-17 06:00:00 +1100']"
-      page.should have_selector "input[value='2040-10-24 17:00:00 +1100']"
+      page.should have_selector "input[value='#{Time.zone.local(2040, 10, 17, 06, 00, 00)}']"
+      page.should have_selector "input[value='#{Time.zone.local(2040, 10, 24, 17, 00, 00)}']"
 
       # And it should have some variants selected
       oc = OrderCycle.last
@@ -988,8 +988,8 @@ feature %q{
       # Then my order cycle should have been updated
       page.should have_content 'Your order cycle has been updated.'
       page.should have_selector 'a', text: 'Plums & Avos'
-      page.should have_selector "input[value='2040-10-17 06:00:00 +1100']"
-      page.should have_selector "input[value='2040-10-24 17:00:00 +1100']"
+      page.should have_selector "input[value='#{Time.zone.local(2040, 10, 17, 06, 00, 00)}']"
+      page.should have_selector "input[value='#{Time.zone.local(2040, 10, 24, 17, 00, 00)}']"
 
       # And it should have a variant selected
       oc = OrderCycle.last
