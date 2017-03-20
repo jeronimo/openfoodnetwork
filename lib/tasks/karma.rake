@@ -1,8 +1,10 @@
 namespace :karma  do
+  desc 'start AngularJs tests with karma'
   task :start => :environment do
     with_tmp_config :start
   end
 
+  desc 'single run of AngularJs tests with karma'
   task :run => :environment do
     with_tmp_config :start, "--single-run"
   end
@@ -14,7 +16,7 @@ namespace :karma  do
       f.write unit_js(application_spec_files << i18n_file)
       f.flush
       trap('SIGINT') { puts "Killing Karma"; exit }
-      exec "karma #{command} #{f.path} #{args}"
+      exec "./node_modules/.bin/karma #{command} #{f.path} #{args}"
     end
   end
 
