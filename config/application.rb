@@ -108,5 +108,7 @@ module Openfoodnetwork
     config.assets.precompile += ['qz/*']
 
     config.active_support.escape_html_entities_in_json = true
+
+    config.middleware.use I18n::JS::Middleware
   end
 end
