@@ -1,3 +1,6 @@
+# Old aliases before i18n-js was introduced.
+# TODO - delete it after everything is moved to i18n-js
+
 # Declares the translation function t.
 # You can use translate('login') or t('login') in Javascript.
 window.translate = (key, options = {}) ->
@@ -5,14 +8,4 @@ window.translate = (key, options = {}) ->
     console.log 'The I18n object is undefined. Cannot translate text.'
     return key
   I18n.t(key, options)
-  # dict = I18n
-  # parts = key.split '.'
-  # while (parts.length)
-  #   part = parts.shift()
-  #   return key unless part of dict
-  #   dict = dict[part]
-  # text = dict
-  # for name, value of options
-  #   text = text.split("%{#{name}}").join(value)
-  # text
 window.t = window.translate
